@@ -110,6 +110,8 @@ console.log(repeatFilms(filmsStarWar))
 
 
 
+
+
 //5)
 starWarCharacters.length= 0;
 console.log(starWarCharacters)
