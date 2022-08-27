@@ -81,16 +81,44 @@ console.log(massStarWarCharacters)
 
 //4)
 let filmsStarWar= JSON.parse(JSON.stringify(starWarCharacters))
-filmsStarWar= filmsStarWar.map((elem)=> elem.films)
-console.log(filmsStarWar)
-let[LukeSkywalker,C3PO,DarthVader,LeiaOrgana,ObiWanKenobi] = filmsStarWar
-const duplicatedFilms = [...new Set(LukeSkywalker,C3PO,DarthVader,LeiaOrgana)].filter(item => ObiWanKenobi.includes(item));
-console.log(duplicatedFilms); 
+
+function repeatFilms(item){
+  let item1= item.map((elem)=> elem.films)
+  let item2= item1.join().split(',')
+  let length = item1.length;
+  let count = {};
+  for (let elem of item2) {
+      if (count[elem] === undefined) {
+          count[elem] = 1;
+      } else {
+          count[elem]++;
+      }
+  }
+  let count2 = [];
+  for (var key in count){
+      if (count[key]===length ) {
+          count2.push(key)
+      }
+  }
+
+  return count2
+}
+
+
+console.log(repeatFilms(filmsStarWar))
+
+
 
 
 //5)
 starWarCharacters.length= 0;
 console.log(starWarCharacters)
+
+
+
+
+
+
 
 
 
